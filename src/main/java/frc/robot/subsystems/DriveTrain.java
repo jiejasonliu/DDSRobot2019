@@ -25,31 +25,26 @@ public class DriveTrain extends Subsystem {
 	public double kP = RobotSettings.kP;
 	public double error_angle = 0;
 
-	private Victor left1 = new Victor(RobotMap.VICTOR_LEFT1);
-	private Victor left2 = new Victor(RobotMap.VICTOR_LEFT2);
-	private Victor right1 = new Victor(RobotMap.VICTOR_RIGHT1);
-	private Victor right2 = new Victor(RobotMap.VICTOR_RIGHT2);
+	private Victor left1 = new Victor(RobotMap.MOTOR_LEFT1);
+	private Victor left2 = new Victor(RobotMap.MOTOR_LEFT2);
+	private Victor right1 = new Victor(RobotMap.MOTOR_RIGHT1);
+	private Victor right2 = new Victor(RobotMap.MOTOR_RIGHT2);
 
 	//groups both motors as one drive, both motors required for movement
 	public SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
 	public SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
 	public DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
 
-	public ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
+	//public ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
 	public final double initSpeed = RobotSettings.DRIVE_SPEED; //speed during initialization
 
-	public void tankDrive(double left_axis, double right_axis) {
-		double speed = RobotSettings.DRIVE_SPEED;
-		drive.tankDrive(left_axis * speed, right_axis * speed);
-	}
-
-	public void driveStraight(double velocity, double output) {
-		drive.arcadeDrive(velocity, output);
-	}
-
-	public void stopAutonomous() {
-		drive.tankDrive(0.7,0.7);
+	public void drive(double velocity, double rotation) {
+		if (velocity > 0.15 || velocity < -0.15) {
+			drive.curvatureDrive(velocity, rotation, false);
+		} else {
+			drive.curvatureDrive(velocity, rotation, true);
+		}
 	}
 
 	@Override

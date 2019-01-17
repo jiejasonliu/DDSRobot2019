@@ -11,20 +11,19 @@ import frc.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-	/**
-	 * An example command.  You can replace me with your own command.
-	 */
-	public class DriveCommand extends Command {
-		public DriveCommand() {
-			requires(Robot.driveTrain);
-		}
+public class DriveCommand extends Command {
+	public DriveCommand() {
+		requires(Robot.driveTrain);
+	}
 
-		protected void initialize() {
-		}
+	protected void initialize() {
+	}
 
 	@Override
 	protected void execute() {
-		//Robot.driveTrain.drive() ---
+		double y_axis = Robot.oi.getJoystick().getY();
+		double rotation = Robot.oi.getJoystick().getZ();
+		Robot.driveTrain.drive(y_axis, rotation);
 	}
 
 	@Override
@@ -39,5 +38,6 @@ import edu.wpi.first.wpilibj.command.Command;
 	@Override
 	protected void interrupted() {
 		System.out.println("FATAL ERROR!!! Drive Train has been interrupted.");
+		end();
 	}
 }

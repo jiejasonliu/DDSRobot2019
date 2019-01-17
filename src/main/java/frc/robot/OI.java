@@ -7,7 +7,9 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
 import frc.robot.commands.*;
 
@@ -16,10 +18,14 @@ import frc.robot.commands.*;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	int port = 0; //no idea
+	private Joystick joy = new Joystick(RobotMap.JOYSTICK_PORT);
 
 	public OI() {
+		//Button some_button = new JoystickButton(joy, button_id);
+	}
 
+	public Joystick getJoystick() {
+		return this.joy;
 	}
 }
 
