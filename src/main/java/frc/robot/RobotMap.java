@@ -20,8 +20,8 @@ public class RobotMap {
 		JOYSTICK_PORT = 0,
 
 		//Drive Train
-		MOTOR_LEFT1 = 1,
-		MOTOR_LEFT2 = 3,
-		MOTOR_RIGHT1 = 2,
-		MOTOR_RIGHT2 = 4;
+		MOTOR_LEFT1 = 4,
+		MOTOR_LEFT2 = 5,
+		MOTOR_RIGHT1 = 0,
+		MOTOR_RIGHT2 = 1;
 }
