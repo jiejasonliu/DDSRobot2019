@@ -8,7 +8,7 @@
 package frc.robot.commands;
 
 import frc.robot.Robot;
-
+import frc.robot.RobotSettings;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveCommand extends Command {
@@ -21,8 +21,13 @@ public class DriveCommand extends Command {
 
 	@Override
 	protected void execute() {
-		double y_axis = Robot.oi.getJoystick().getY();
-		double rotation = Robot.oi.getJoystick().getZ();
+		double y_axis = -1.0 * (Robot.oi.getJoystick().getY()) * RobotSettings.DRIVE_SPEED;
+		double rotation = Robot.oi.getJoystick().getZ() * RobotSettings.TURN_SPEED;
+
+		if (y_axis < 0.1 && y_axis > -0.1) { //sensitivity adjustment
+			y_axis = 0.0;
+		}
+
 		Robot.driveTrain.drive(y_axis, rotation);
 	}
 
