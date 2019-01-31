@@ -35,6 +35,7 @@ public class Slider extends Subsystem {
 	/**
 	 * Automatically starts the command on Robot initialization. Lowers the slider or prepares it to the bottom level.
 	 * @see DriveTrain#initDefaultCommand() references
+     * @see SystemControl#initDefaultCommand() references
 	 */
     @Override
     protected void initDefaultCommand() {

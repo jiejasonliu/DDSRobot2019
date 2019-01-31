@@ -49,6 +49,7 @@ public class DriveTrain extends Subsystem {
 	/**
 	 * Automatically starts the command on Robot initialization. You never have to start the command in this case.
 	 * @see Slider#initDefaultCommand() references
+	 * @see SystemControl#initDefaultCommand() references
 	 */
 	@Override
 	public void initDefaultCommand() {

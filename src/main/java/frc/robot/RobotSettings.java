@@ -11,6 +11,7 @@ public class RobotSettings {
         //drive train settings
         DRIVE_SPEED = 0.9, //1.0 max (100% of top speed)
         TURN_SPEED = 0.625,
+        LOWEST_POSSIBLE_TURN_SPEED = 0.4,
         DRIVE_DIRECTION = 1, //negative to invert wheels
 
         //slider calibrations
@@ -28,4 +29,8 @@ public class RobotSettings {
         kI = 0.06;
 
         //autonomous timings (in seconds)
+
+    public static void changeRotationSpeed(double speed) {
+        TURN_SPEED = speed;
+    }
 }

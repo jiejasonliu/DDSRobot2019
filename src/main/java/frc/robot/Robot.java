@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain = new DriveTrain();
 	public static Slider slider = new Slider();
 	public static NomNom nomNom = new NomNom();
+	public static SystemControl sys = new SystemControl();
 
 	public static OI oi;
 	Command autonomousCommand;
