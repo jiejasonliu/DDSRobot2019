@@ -19,10 +19,14 @@ public class OI {
 		Button topSlider = new JoystickButton(joy, 7);
 		Button middleSlider = new JoystickButton(joy, 9);
 		Button bottomSlider = new JoystickButton(joy, 11);
+		Button nomNomRelease = new JoystickButton(joy, 1);
+		Button nomNomGrab = new JoystickButton(joy, 2);
 
 		topSlider.whenPressed(new SliderPositionCommand(Position.TOP));
 		middleSlider.whenPressed(new SliderPositionCommand(Position.MIDDLE));
 		bottomSlider.whenPressed(new SliderPositionCommand(Position.BOTTOM));
+		nomNomRelease.whileHeld(new NomNomReleaseCommand());
+		nomNomGrab.whileHeld(new NomNomGrabCommand());
 	}
 
 	public Joystick getJoystick() {
