@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
 	//singletons for subsystems, only one instance per Robot.
 	public static DriveTrain driveTrain = new DriveTrain();
 	public static Slider slider = new Slider();
+	public static NomNom nomNom = new NomNom();
 
 	public static OI oi;
 	Command autonomousCommand;

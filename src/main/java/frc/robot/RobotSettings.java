@@ -17,6 +17,11 @@ public class RobotSettings {
         SLIDER_TOP = 0,
         SLIDER_MIDDLE = 0,
         SLIDER_BOTTOM = 0,
+        SLIDER_SPEED = 0.5,
+
+        //nom nom calibrations
+        NOM_NOM_SPEED = 0.5,
+        NOM_NOM_RELEASE_SPEED = 0.6,
 
         //PID corrections
         kP = 0.11,

@@ -12,7 +12,7 @@ public class SliderPositionCommand extends Command {
 
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
-     * with the same subsystem requirement will call Command#interrupted() on the last command
+     * with the same subsystem requirement will call Command#interrupted() on the last command.
      * @param position Pass in an enum Position so that the Slider knows what position it is looking for
      */
 	public SliderPositionCommand(Position position) {
