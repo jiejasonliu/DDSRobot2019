@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -12,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
 import frc.robot.commands.*;
+import frc.robot.helper.Position;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,6 +16,13 @@ public class OI {
 
 	public OI() {
 		//Button some_button = new JoystickButton(joy, button_id);
+		Button topSlider = new JoystickButton(joy, 7);
+		Button middleSlider = new JoystickButton(joy, 9);
+		Button bottomSlider = new JoystickButton(joy, 11);
+
+		topSlider.whenPressed(new SliderPositionCommand(Position.TOP));
+		middleSlider.whenPressed(new SliderPositionCommand(Position.MIDDLE));
+		bottomSlider.whenPressed(new SliderPositionCommand(Position.BOTTOM));
 	}
 
 	public Joystick getJoystick() {

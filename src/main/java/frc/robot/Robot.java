@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -21,11 +14,20 @@ import frc.robot.subsystems.DriveTrain;
  * functions corresponding to each mode, as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the build.properties file in the
- * project.
- */
+ * project. <p>
+ * 
+ * The core class for the Robot (aside from Main which creates an instance of this class).
+ * Here, the autonomous and periodic functions are defined (ran 50 times a second). 
+ * Acts as a backboard for all subsystems (for singletons) and defines the Output/Input.
+ * The key thing to note is the Scheduler, but simply, it helps "schedule" the commands in order.
+ * 
+ * @author Jie "Jason" Liu / Deepzai 
+ * @author FIRST Robotics Team 7634 (New Hawks)
+*/
 public class Robot extends TimedRobot {
 	//singletons for subsystems, only one instance per Robot.
 	public static DriveTrain driveTrain = new DriveTrain();
+	public static Slider slider = new Slider();
 
 	public static OI oi;
 	Command autonomousCommand;
@@ -40,7 +42,9 @@ public class Robot extends TimedRobot {
 		oi = new OI();
 		chooser.setDefaultOption("Persistent Driving", new DriveCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto Mode", chooser);
+
+		SmartDashboard.putData("Drive Train", driveTrain);
+		SmartDashboard.putData("Slider", slider);
 	}
 
 	/**

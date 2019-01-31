@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.*;
@@ -16,9 +9,6 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotSettings;
 import frc.robot.commands.DriveCommand;
 
-/**
- * An example subsystem.  You can replace me with your own Subsystem.
- */
 public class DriveTrain extends Subsystem {
 
 	public double kI = RobotSettings.kI;
@@ -31,22 +21,35 @@ public class DriveTrain extends Subsystem {
 	private Victor right2 = new Victor(RobotMap.MOTOR_RIGHT2);
 
 	//groups both motors as one drive, both motors required for movement
-	public SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
-	public SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
+	private SpeedControllerGroup leftSideDrive = new SpeedControllerGroup(left1, left2);
+	private SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
 	public DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
 
 	//public ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
 	public final double initSpeed = RobotSettings.DRIVE_SPEED; //speed during initialization
 
+	/**
+	 * Drives using DifferentialDrive#curvatureDrive. <p>
+	 * 
+	 * Lets the robot turn in place as long as velocity does not exceed the sensitivity factor.
+	 * @see DifferentialDrive#curvatureDrive() boolean param3 (isQuickTurn)
+	 * 
+	 * @param velocity How fast the robot is going (positive is forwards, negative is backwards)
+	 * @param rotation How fast the robot is spinning (positive is clockwise, negative is counter-clockwise)
+	 */
 	public void drive(double velocity, double rotation) {
 		if (velocity > 0.15 || velocity < -0.15) {
-			drive.curvatureDrive(velocity, rotation, false);
+			drive.curvatureDrive(velocity, rotation, false); //curves
 		} else {
-			drive.curvatureDrive(velocity, rotation, true);
+			drive.curvatureDrive(velocity, rotation, true); //turn in place
 		}
 	}
 
+	/**
+	 * Automatically starts the command on Robot initialization. You never have to start the command in this case.
+	 * @see Slider#initDefaultCommand() references
+	 */
 	@Override
 	public void initDefaultCommand() {
 		this.setDefaultCommand(new DriveCommand());

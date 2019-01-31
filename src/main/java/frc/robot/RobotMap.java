@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
 import edu.wpi.first.wpilibj.SPI;
@@ -23,5 +16,11 @@ public class RobotMap {
 		MOTOR_LEFT1 = 1,
 		MOTOR_LEFT2 = 3,
 		MOTOR_RIGHT1 = 2,
-		MOTOR_RIGHT2 = 4;
+		MOTOR_RIGHT2 = 4,
+
+		//Slider
+		SLIDER_WINCH = 0,
+
+		//nom nom
+		NOM_NOM = 0;
 }
