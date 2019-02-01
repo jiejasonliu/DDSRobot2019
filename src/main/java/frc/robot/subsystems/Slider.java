@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
 import frc.robot.RobotSettings;
 import frc.robot.commands.SliderPositionCommand;
@@ -10,6 +11,7 @@ import frc.robot.helper.Position;
 public class Slider extends Subsystem {
 
     private Victor slider = new Victor(RobotMap.SLIDER_WINCH);
+    private Position currentPosition = Position.BOTTOM;
 
     /**
      * Spins the motor to start raising the slider.
@@ -30,6 +32,20 @@ public class Slider extends Subsystem {
      */
     public void stopMotor() {
         slider.stopMotor();
+    }
+
+    /**
+     * @return The current position
+     */
+    public Position getCurrentPosition() {
+        return currentPosition;
+    }
+
+    /**
+     * @param Current position to set
+     */
+    public void setCurrentPosition(Position currentPosition) {
+        this.currentPosition = currentPosition;
     }
 
 	/**

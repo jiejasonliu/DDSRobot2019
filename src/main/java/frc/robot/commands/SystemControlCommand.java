@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
 
@@ -19,7 +20,12 @@ public class SystemControlCommand extends Command {
 
 	@Override
 	protected void execute() {
-        RobotSettings.changeRotationSpeed(getTurnSpeed());
+        
+        double turnSpeed = getTurnSpeed();
+        SmartDashboard.putNumber("System Slider", (Robot.oi.getJoystick().getRawAxis(3) + 1) / 2.0); //percentage of slider
+        SmartDashboard.putNumber("Turn Speed", turnSpeed); //current turn speed of Robot
+
+        RobotSettings.changeRotationSpeed(turnSpeed);
 	}
 
     /**
@@ -29,7 +35,7 @@ public class SystemControlCommand extends Command {
      */
     public double getTurnSpeed() {
         double slider_axis = Robot.oi.getJoystick().getRawAxis(3) + 1; //add 1 to change range of [-1,1] to [0,2]
-        double sliderPercentage = (slider_axis / 2); //get % of the slider on Joystick (+ is 100%, - is 0%). Range is [0,1]
+        double sliderPercentage = (slider_axis / 2.0); //get % of the slider on Joystick (+ is 100%, - is 0%). Range is [0,1]
 
         double highestTurnSpeed = Robot.sys.getDefaultRotationSpeed();
         double lowestTurnSpeed = RobotSettings.LOWEST_POSSIBLE_TURN_SPEED;

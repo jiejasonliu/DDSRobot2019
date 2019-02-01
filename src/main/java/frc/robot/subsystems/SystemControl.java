@@ -11,6 +11,7 @@ import frc.robot.helper.Position;
 public class SystemControl extends Subsystem {
 
     private double defaultRotationSpeed = RobotSettings.TURN_SPEED;
+
     /**
      * Change the rotation speed for the Robot.
      */

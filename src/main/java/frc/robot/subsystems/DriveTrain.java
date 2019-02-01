@@ -6,6 +6,7 @@ import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotSettings;
 import frc.robot.commands.DriveCommand;
 
@@ -28,7 +29,7 @@ public class DriveTrain extends Subsystem {
 	//public ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
 
 	public final double initSpeed = RobotSettings.DRIVE_SPEED; //speed during initialization
-
+	
 	/**
 	 * Drives using DifferentialDrive#curvatureDrive. <p>
 	 * 
@@ -39,11 +40,18 @@ public class DriveTrain extends Subsystem {
 	 * @param rotation How fast the robot is spinning (positive is clockwise, negative is counter-clockwise)
 	 */
 	public void drive(double velocity, double rotation) {
+		SmartDashboard.putNumber("Velocity", velocity);
+		SmartDashboard.putNumber("Rotation Speed", rotation);
+
 		if (velocity > 0.15 || velocity < -0.15) {
 			drive.curvatureDrive(velocity, rotation, false); //curves
 		} else {
 			drive.curvatureDrive(velocity, rotation, true); //turn in place
 		}
+	}
+
+	public double dataTransfer(double data, int dataID) {
+		return data;
 	}
 
 	/**

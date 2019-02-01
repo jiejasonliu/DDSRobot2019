@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
 import frc.robot.helper.Position;
@@ -28,6 +29,7 @@ public class SliderPositionCommand extends Command {
 
 	@Override
 	protected void execute() {
+        SmartDashboard.putString("Current Position", "sliding...");
         //need encoder for logic to work
         /*
             if encoder is lower than designated value, call slider.raise()
@@ -59,8 +61,12 @@ public class SliderPositionCommand extends Command {
         return true; //delete after getting encoder
     }
 
+    /**
+     * Passes the current position after the command is done. This is used for SmartDashboard posting.
+     */
 	@Override
 	protected void end() {
+        SmartDashboard.putString("Current Position", pos.toString());
 	}
 
 	@Override
