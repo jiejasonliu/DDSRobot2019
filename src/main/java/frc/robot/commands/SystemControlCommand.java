@@ -19,7 +19,7 @@ public class SystemControlCommand extends Command {
 
 	@Override
 	protected void execute() {
-
+        RobotSettings.changeRotationSpeed(getTurnSpeed());
 	}
 
     /**
