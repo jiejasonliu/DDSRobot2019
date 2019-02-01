@@ -18,21 +18,21 @@ public class NomNomGrabCommand extends Command {
 
     @Override
     protected void execute() {
-    Robot.nomNom.grab();
+        Robot.nomNom.grab();
     }
 
     @Override
     protected boolean isFinished() {
-    return false;
+        return false;
     }
 
     @Override
     protected void end() {
-    Robot.nomNom.stopMotor();
+        Robot.nomNom.stopMotor();
     }
 
     @Override
     protected void interrupted() {
-    end();
+        end();
     }
 }
