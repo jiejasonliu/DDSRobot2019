@@ -31,7 +31,7 @@ public class SystemControl extends Subsystem {
         double sliderPercentage = (slider_axis / 2.0); //get % of the slider on Joystick (+ is 100%, - is 0%). Range is [0,1]
 
         double highestTurnSpeed = getDefaultRotationSpeed();
-        double lowestTurnSpeed = RobotSettings.LOWEST_POSSIBLE_TURN_SPEED;
+        double lowestTurnSpeed = RobotSettings.LOWEST_TURN_SPEED;
         double range = highestTurnSpeed - lowestTurnSpeed; //distance between lowest and highest speed
 
         double outputTurnSpeed = (lowestTurnSpeed) + (range * sliderPercentage);

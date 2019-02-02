@@ -27,6 +27,8 @@ public class OI {
 		bottomSlider.whenPressed(new SliderPositionCommand(Position.BOTTOM));
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
+
+		//create button for locating target
 	}
 
 	public Joystick getJoystick() {

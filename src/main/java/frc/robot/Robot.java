@@ -30,6 +30,7 @@ public class Robot extends TimedRobot {
 	public static Slider slider;
 	public static NomNom nomNom;
 	public static SystemControl sys;
+	public static Limelight limelight;
 
 	public static OI oi;
 	Command autonomousCommand;
@@ -48,12 +49,14 @@ public class Robot extends TimedRobot {
 		slider = new Slider();
 		nomNom = new NomNom();
 		sys = new SystemControl();
+		limelight = new Limelight();
 		
 		chooser.setDefaultOption("Persistent Driving", new DriveCommand());
 
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(slider);
 		SmartDashboard.putData(nomNom);
+		SmartDashboard.putData(limelight);
 	}
 
 	/**

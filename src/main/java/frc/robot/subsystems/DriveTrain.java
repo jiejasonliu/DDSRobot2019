@@ -34,6 +34,7 @@ public class DriveTrain extends Subsystem {
 	 * 
 	 * Lets the robot turn in place as long as velocity does not exceed the sensitivity factor.
 	 * @see DifferentialDrive#curvatureDrive() boolean param3 (isQuickTurn)
+	 * @see DriveCommand#execute() for usage of this method
 	 * 
 	 * @param velocity How fast the robot is going (positive is forwards, negative is backwards)
 	 * @param rotation How fast the robot is spinning (positive is clockwise, negative is counter-clockwise)
@@ -49,8 +50,11 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 
-	public double dataTransfer(double data, int dataID) {
-		return data;
+	/**
+	 * Used primarily for Limelight camera system's locating mechanism.
+	 */
+	public void curvatureDrive(double velocity, double rotation, boolean isQuickTurn) {
+		drive.curvatureDrive(velocity, rotation, isQuickTurn);
 	}
 
 	/**
