@@ -42,7 +42,6 @@ public class LocateTargetCommand extends Command {
 
     @Override
     protected void end() {
-        Robot.nomNom.stopMotor();
     }
 
     @Override
