@@ -43,7 +43,7 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("Velocity", velocity);
 		SmartDashboard.putNumber("Rotation Speed", rotation);
 
-		if (velocity > 0.15 || velocity < -0.15) {
+		if (velocity > 0.075 || velocity < -0.075) {
 			drive.curvatureDrive(velocity, rotation, false); //curves
 		} else {
 			drive.curvatureDrive(velocity, rotation, true); //turn in place
