@@ -42,6 +42,13 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
+		//initialize subsystems 
+		driveTrain = new DriveTrain();
+		slider = new Slider();
+		nomNom = new NomNom();
+		sys = new SystemControl();
+		limelight = new Limelight();
+		//output/input must be initialized after subsystems
 		oi = new OI();
 
 		chooser.setDefaultOption("Persistent Driving", new DriveCommand());

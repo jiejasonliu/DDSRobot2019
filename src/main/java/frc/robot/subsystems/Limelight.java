@@ -94,6 +94,5 @@ public class Limelight extends Subsystem {
     
     @Override
     public void initDefaultCommand() {
-        //setDefaultCommand(new LocateTargetCommand(Direction.CLOCKWISE));
     }
 }
