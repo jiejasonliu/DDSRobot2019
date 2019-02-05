@@ -25,7 +25,7 @@ public class LocateTargetCommand extends Command {
         Robot.limelight.setTrackingMode();
         if (initMotion == Direction.COUNTERCLOCKWISE) {
             clockwise = -1;
-        } else { //set clockwise
+        } else { //set clockwise, can delete this but leaving it for readability since init (default: 1)
             clockwise = 1;
         }
     }

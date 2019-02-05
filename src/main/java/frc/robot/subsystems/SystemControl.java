@@ -34,7 +34,7 @@ public class SystemControl extends Subsystem {
         double lowestTurnSpeed = RobotSettings.LOWEST_TURN_SPEED;
         double range = highestTurnSpeed - lowestTurnSpeed; //distance between lowest and highest speed
 
-        double outputTurnSpeed = (lowestTurnSpeed) + (range * sliderPercentage);
+        double outputTurnSpeed = (highestTurnSpeed) - (range * sliderPercentage);
 
         SmartDashboard.putNumber("System Slider", sliderPercentage); //percentage of slider
         SmartDashboard.putNumber("Turn Speed", outputTurnSpeed); //current turn speed of Robot

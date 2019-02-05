@@ -26,11 +26,11 @@ import frc.robot.subsystems.DriveTrain;
 */
 public class Robot extends TimedRobot {
 	//singletons for subsystems, only one instance per Robot.
-	public static DriveTrain driveTrain;
-	public static Slider slider;
-	public static NomNom nomNom;
-	public static SystemControl sys;
-	public static Limelight limelight;
+	public static DriveTrain driveTrain = new DriveTrain();
+	public static Slider slider = new Slider();
+	public static NomNom nomNom = new NomNom();
+	public static SystemControl sys = new SystemControl();
+	public static Limelight limelight = new Limelight();
 
 	public static OI oi;
 	Command autonomousCommand;
@@ -44,13 +44,6 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		oi = new OI();
 
-		//initalize subsystems
-		driveTrain = new DriveTrain();
-		slider = new Slider();
-		nomNom = new NomNom();
-		sys = new SystemControl();
-		limelight = new Limelight();
-		
 		chooser.setDefaultOption("Persistent Driving", new DriveCommand());
 
 		SmartDashboard.putData(driveTrain);

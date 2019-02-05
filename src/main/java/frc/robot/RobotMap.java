@@ -17,7 +17,7 @@ public class RobotMap {
 		MOTOR_RIGHT2 = 4,
 
 		//Slider
-		SLIDER_WINCH = 0,
+		SLIDER_WINCH = 5,
 
 		//nom nom
 		NOM_NOM = 0;

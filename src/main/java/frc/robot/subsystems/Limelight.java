@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
 import frc.robot.commands.LocateTargetCommand;
+import frc.robot.helper.Direction;
 
 public class Limelight extends Subsystem {
 
@@ -93,6 +94,6 @@ public class Limelight extends Subsystem {
     
     @Override
     public void initDefaultCommand() {
-        setDefaultCommand(new LocateTargetCommand());
+        //setDefaultCommand(new LocateTargetCommand(Direction.CLOCKWISE));
     }
 }
