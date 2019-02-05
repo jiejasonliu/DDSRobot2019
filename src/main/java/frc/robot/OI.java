@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
 import frc.robot.commands.*;
+import frc.robot.helper.Direction;
 import frc.robot.helper.Position;
 
 /**
@@ -21,12 +22,16 @@ public class OI {
 		Button bottomSlider = new JoystickButton(joy, 11);
 		Button nomNomRelease = new JoystickButton(joy, 1);
 		Button nomNomGrab = new JoystickButton(joy, 2);
+		Button raiseSlider = new JoystickButton(joy, 8);
+		Button lowerSlider = new JoystickButton(joy, 12);
 
 		topSlider.whenPressed(new SliderPositionCommand(Position.TOP));
 		middleSlider.whenPressed(new SliderPositionCommand(Position.MIDDLE));
 		bottomSlider.whenPressed(new SliderPositionCommand(Position.BOTTOM));
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
+		raiseSlider.whileHeld(new ManualSliderCommand(Direction.UP));
+		lowerSlider.whileHeld(new ManualSliderCommand(Direction.DOWN));
 
 		//create button for locating target
 	}
