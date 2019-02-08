@@ -48,11 +48,11 @@ public class Robot extends TimedRobot {
 		nomNom = new NomNom();
 		sys = new SystemControl();
 		limelight = new Limelight();
+
 		//output/input must be initialized after subsystems
 		oi = new OI();
 
 		chooser.setDefaultOption("Persistent Driving", new DriveCommand());
-
 		SmartDashboard.putData(driveTrain);
 		SmartDashboard.putData(slider);
 		SmartDashboard.putData(nomNom);

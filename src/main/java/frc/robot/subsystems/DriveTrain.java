@@ -41,7 +41,7 @@ public class DriveTrain extends Subsystem {
 	 */
 	public void drive(double velocity, double rotation) {
 		SmartDashboard.putNumber("Velocity", velocity);
-		SmartDashboard.putNumber("Rotation Speed", rotation);
+		SmartDashboard.putNumber("Current Rotation Speed", rotation);
 
 		if (velocity > 0.075 || velocity < -0.075) {
 			drive.curvatureDrive(velocity, rotation, false); //curves
