@@ -41,7 +41,7 @@ public class ManualSliderCommand extends Command {
 
     @Override
     protected void end() {
-       
+       Robot.slider.stopMotor();
     }
 
     @Override

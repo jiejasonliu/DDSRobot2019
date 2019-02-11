@@ -11,7 +11,7 @@ public class RobotSettings {
         //drive train settings
         DRIVE_SPEED = 0.9, //1.0 max (100% of top speed)
         SEEK_MAX_SPEED = 0.75, //for LocateTargetCommand and Limelight
-        TURN_SPEED = 0.625,
+        TURN_SPEED = 0.75,
         LOWEST_TURN_SPEED = 0.4,
         MIN_DRIVE_POWER = 0.1, //lowest power needed to move wheels
         DRIVE_DIRECTION = 1, //negative to invert wheels
@@ -23,8 +23,8 @@ public class RobotSettings {
         SLIDER_SPEED = 0.5,
 
         //nom nom calibrations
-        NOM_NOM_SPEED = 0.5,
-        NOM_NOM_RELEASE_SPEED = 0.6,
+        NOM_NOM_SPEED = 0.65,
+        NOM_NOM_RELEASE_SPEED = 1.0,
 
         //PID corrections
         kP = 0.11,
