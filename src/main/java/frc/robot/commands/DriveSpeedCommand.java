@@ -5,23 +5,23 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
 
-public class RotationSpeedCommand extends Command {
+public class DriveSpeedCommand extends Command {
 
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
      * with the same subsystem requirement will call Command#interrupted() on the last command.
      */
-    public RotationSpeedCommand() {
+    public DriveSpeedCommand() {
         requires(Robot.sys);
     }
 
     protected void initialize() {
-        SmartDashboard.putString("Slider Focus", "Rotation System");
+        SmartDashboard.putString("Slider Focus", "Drive Train");
     }
 
     @Override
     protected void execute() {
-        RobotSettings.changeRotationSpeed(Robot.sys.getCalculatedTurnSpeed());
+        RobotSettings.changeDriveSpeed(Robot.sys.getCalculatedDriveSpeed());
     }
 
     @Override

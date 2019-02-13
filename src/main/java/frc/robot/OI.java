@@ -25,10 +25,16 @@ public class OI {
 		Button raiseSlider = new JoystickButton(joy, 7);
 		Button lowerSlider = new JoystickButton(joy, 8);
 
+		Button turnSpeed = new JoystickButton(joy, 3);
+		Button driveSpeed = new JoystickButton(joy, 4);
+
+
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
 		raiseSlider.whileHeld(new ManualSliderCommand(Direction.UP));
 		lowerSlider.whileHeld(new ManualSliderCommand(Direction.DOWN));
+		turnSpeed.whenPressed(new RotationSpeedCommand());
+		driveSpeed.whenPressed(new DriveSpeedCommand());
 
 		//create button for locating target
 	}

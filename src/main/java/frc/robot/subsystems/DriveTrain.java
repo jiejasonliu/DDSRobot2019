@@ -42,12 +42,20 @@ public class DriveTrain extends Subsystem {
 	public void drive(double velocity, double rotation) {
 		SmartDashboard.putNumber("Velocity", velocity);
 		SmartDashboard.putNumber("Current Rotation Speed", rotation);
+		double maxDriveSpeed = RobotSettings.DRIVE_SPEED;
 
-		if (velocity > 0.075 || velocity < -0.075) {
-			drive.curvatureDrive(velocity, rotation, false); //curves
+		if (Math.abs(velocity) < (0.5 * maxDriveSpeed)) { //fast turn if less than 50% of max drive speed
+			drive.curvatureDrive(velocity, rotation, true);
 		} else {
-			drive.curvatureDrive(velocity, rotation, true); //turn in place
+			drive.curvatureDrive(velocity, rotation, false);
 		}
+
+		/*
+		if (velocity == 0) {
+			drive.curvatureDrive(velocity, rotation * 0.75, true); //turn in place
+		} else {
+			drive.curvatureDrive(velocity, rotation, false); //curves
+		}*/
 	}
 
 	/**

@@ -9,10 +9,11 @@ public class RobotSettings {
         DEBUG_MODE = 0, //implement later (0-off; 1-on)
 
         //drive train settings
+        LOWEST_DRIVE_SPEED = 0.5,
         DRIVE_SPEED = 0.9, //1.0 max (100% of top speed)
         SEEK_MAX_SPEED = 0.75, //for LocateTargetCommand and Limelight
-        TURN_SPEED = 0.75,
-        LOWEST_TURN_SPEED = 0.4,
+        TURN_SPEED = 1.0,
+        LOWEST_TURN_SPEED = 0.5,
         MIN_DRIVE_POWER = 0.1, //lowest power needed to move wheels
         DRIVE_DIRECTION = 1, //negative to invert wheels
 
@@ -44,5 +45,9 @@ public class RobotSettings {
 
     public static void changeRotationSpeed(double speed) {
         TURN_SPEED = speed;
+    }
+
+    public static void changeDriveSpeed(double speed) {
+        DRIVE_SPEED = speed;
     }
 }
