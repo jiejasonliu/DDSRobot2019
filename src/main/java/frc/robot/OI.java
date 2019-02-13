@@ -17,17 +17,14 @@ public class OI {
 
 	public OI() {
 		//Button some_button = new JoystickButton(joy, button_id);
-		Button topSlider = new JoystickButton(joy, 7);
-		Button middleSlider = new JoystickButton(joy, 9);
-		Button bottomSlider = new JoystickButton(joy, 11);
+		//Button topSlider = new JoystickButton(joy, 7);
+		//Button middleSlider = new JoystickButton(joy, 9);
+		//Button bottomSlider = new JoystickButton(joy, 11);
 		Button nomNomRelease = new JoystickButton(joy, 1);
 		Button nomNomGrab = new JoystickButton(joy, 2);
-		Button raiseSlider = new JoystickButton(joy, 8);
-		Button lowerSlider = new JoystickButton(joy, 12);
+		Button raiseSlider = new JoystickButton(joy, 7);
+		Button lowerSlider = new JoystickButton(joy, 8);
 
-		topSlider.whenPressed(new SliderPositionCommand(Position.TOP));
-		middleSlider.whenPressed(new SliderPositionCommand(Position.MIDDLE));
-		bottomSlider.whenPressed(new SliderPositionCommand(Position.BOTTOM));
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
 		raiseSlider.whileHeld(new ManualSliderCommand(Direction.UP));

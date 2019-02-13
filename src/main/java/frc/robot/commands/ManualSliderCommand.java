@@ -13,7 +13,7 @@ public class ManualSliderCommand extends Command {
      */
     public ManualSliderCommand(Direction direction) {
         requires(Robot.slider);
-        this.direction = direction;
+        this.direction = direction; //Bips was here too :)
     }
 
     protected void initialize() {

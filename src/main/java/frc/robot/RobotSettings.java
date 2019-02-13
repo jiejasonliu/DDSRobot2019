@@ -20,7 +20,7 @@ public class RobotSettings {
         SLIDER_TOP = 0,
         SLIDER_MIDDLE = 0,
         SLIDER_BOTTOM = 0,
-        SLIDER_SPEED = 0.5,
+        SLIDER_SPEED = 1.0,
 
         //nom nom calibrations
         NOM_NOM_SPEED = 0.65,
@@ -28,7 +28,7 @@ public class RobotSettings {
 
         //PID corrections
         kP = 0.11,
-        kI = 0.06,
+        kI = 0.06, //Hi! Bips was here :)
 
         /* 
          * Trial and error calibration, you can get this ratio by setting an initial SEEK_MAX_SPEED (0.8 in this case),

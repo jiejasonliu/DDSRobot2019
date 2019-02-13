@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
-import frc.robot.commands.SystemControlCommand;
+import frc.robot.commands.RotationSpeedCommand;
 
 public class SystemControl extends Subsystem {
 
@@ -49,6 +49,6 @@ public class SystemControl extends Subsystem {
 	 */
     @Override
     protected void initDefaultCommand() {
-        this.setDefaultCommand(new SystemControlCommand());
+        this.setDefaultCommand(new RotationSpeedCommand());
     }
 }

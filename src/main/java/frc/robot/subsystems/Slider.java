@@ -44,7 +44,7 @@ public class Slider extends Subsystem {
      * @param Current position to set
      */
     public void setCurrentPosition(Position currentPosition) {
-        this.currentPosition = currentPosition;
+        this.currentPosition = currentPosition; //Wow! I believe in you! -Bips
     }
 
 	/**
@@ -54,6 +54,6 @@ public class Slider extends Subsystem {
 	 */
     @Override
     protected void initDefaultCommand() {
-        this.setDefaultCommand(new SliderPositionCommand(Position.BOTTOM));
+       // this.setDefaultCommand(new SliderPositionCommand(Position.BOTTOM));
     }
 }

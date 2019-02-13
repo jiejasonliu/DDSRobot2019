@@ -4,13 +4,13 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
 
-public class SystemControlCommand extends Command {
+public class RotationSpeedCommand extends Command {
 
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
      * with the same subsystem requirement will call Command#interrupted() on the last command.
      */
-    public SystemControlCommand() {
+    public RotationSpeedCommand() {
         requires(Robot.sys);
     }
 
