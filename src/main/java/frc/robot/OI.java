@@ -16,17 +16,16 @@ public class OI {
 	private Joystick joy = new Joystick(RobotMap.JOYSTICK_PORT);
 
 	public OI() {
-		//Button some_button = new JoystickButton(joy, button_id);
-		//Button topSlider = new JoystickButton(joy, 7);
-		//Button middleSlider = new JoystickButton(joy, 9);
-		//Button bottomSlider = new JoystickButton(joy, 11);
 		Button nomNomRelease = new JoystickButton(joy, 1);
 		Button nomNomGrab = new JoystickButton(joy, 2);
+
 		Button raiseSlider = new JoystickButton(joy, 7);
 		Button lowerSlider = new JoystickButton(joy, 8);
 
-		Button turnSpeed = new JoystickButton(joy, 3);
-		Button driveSpeed = new JoystickButton(joy, 4);
+		Button launchDisk = new JoystickButton(joy, 12);
+
+		Button turnSpeed = new JoystickButton(joy, 4);
+		Button driveSpeed = new JoystickButton(joy, 3);
 
 
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
@@ -35,6 +34,7 @@ public class OI {
 		lowerSlider.whileHeld(new ManualSliderCommand(Direction.DOWN));
 		turnSpeed.whenPressed(new RotationSpeedCommand());
 		driveSpeed.whenPressed(new DriveSpeedCommand());
+		launchDisk.whileHeld(new DiskReleaseCommand());
 
 		//create button for locating target
 	}

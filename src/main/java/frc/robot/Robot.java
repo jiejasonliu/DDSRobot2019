@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.*;
-import frc.robot.subsystems.DriveTrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,6 +28,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain;
 	public static Slider slider;
 	public static NomNom nomNom;
+	public static DiskPneumatic pneumatic;
 	public static SystemControl sys;
 	public static Limelight limelight;
 
@@ -48,6 +48,7 @@ public class Robot extends TimedRobot {
 		nomNom = new NomNom();
 		sys = new SystemControl();
 		limelight = new Limelight();
+		pneumatic = new DiskPneumatic();
 
 		//output/input must be initialized after subsystems
 		oi = new OI();

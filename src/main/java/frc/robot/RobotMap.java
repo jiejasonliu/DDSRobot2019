@@ -20,5 +20,8 @@ public class RobotMap {
 		SLIDER_WINCH = 0,
 
 		//nom nom
-		NOM_NOM = 6;
+		NOM_NOM = 6,
+
+		//pneumatics
+		PNEUMATIC_SOLENOID = 0;
 }
