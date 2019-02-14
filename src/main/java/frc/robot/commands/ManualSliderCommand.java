@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.helper.Direction;
 
@@ -17,6 +18,7 @@ public class ManualSliderCommand extends Command {
     }
 
     protected void initialize() {
+        SmartDashboard.putBoolean("Limit Switch", Robot.slider.getLimitSwitch().get());
     }
 
     @Override
@@ -36,7 +38,7 @@ public class ManualSliderCommand extends Command {
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return Robot.slider.getLimitSwitch().get();
     }
 
     @Override

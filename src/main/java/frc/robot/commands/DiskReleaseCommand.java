@@ -9,7 +9,7 @@ public class DiskReleaseCommand extends Command {
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
      * with the same subsystem requirement will call Command#interrupted() on the last command.
      */
-    public DiskReleaseCommand()
+    public DiskReleaseCommand() {
         requires(Robot.pneumatic);
     }
 

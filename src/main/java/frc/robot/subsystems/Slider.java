@@ -1,5 +1,7 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Counter;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -10,6 +12,9 @@ import frc.robot.helper.Position;
 public class Slider extends Subsystem {
 
     private Victor slider = new Victor(RobotMap.SLIDER_WINCH);
+    private DigitalInput limitSwitch = new DigitalInput(RobotMap.LIMIT_SWITCH);
+    private Counter counter = new Counter(limitSwitch);
+
     private Position currentPosition = Position.BOTTOM;
 
     /**
@@ -31,6 +36,14 @@ public class Slider extends Subsystem {
      */
     public void stopMotor() {
         slider.stopMotor();
+    }
+
+    /**
+     * Access to the limit switch on the Slider.
+     * @return The single instance of the limit switch
+     */
+    public DigitalInput getLimitSwitch() {
+        return this.limitSwitch;
     }
 
     /**

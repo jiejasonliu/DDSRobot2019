@@ -58,6 +58,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(slider);
 		SmartDashboard.putData(nomNom);
 		SmartDashboard.putData(limelight);
+		SmartDashboard.putData(pneumatic);
 	}
 
 	/**

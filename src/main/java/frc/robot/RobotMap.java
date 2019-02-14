@@ -18,6 +18,7 @@ public class RobotMap {
 
 		//Slider
 		SLIDER_WINCH = 0,
+		LIMIT_SWITCH = 0,
 
 		//nom nom
 		NOM_NOM = 6,
