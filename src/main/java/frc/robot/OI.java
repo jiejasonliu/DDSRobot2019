@@ -18,15 +18,11 @@ public class OI {
 	public OI() {
 		Button nomNomRelease = new JoystickButton(joy, 1);
 		Button nomNomGrab = new JoystickButton(joy, 2);
-
 		Button raiseSlider = new JoystickButton(joy, 7);
 		Button lowerSlider = new JoystickButton(joy, 8);
-
 		Button launchDisk = new JoystickButton(joy, 12);
-
 		Button turnSpeed = new JoystickButton(joy, 4);
 		Button driveSpeed = new JoystickButton(joy, 3);
-
 
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
@@ -34,7 +30,7 @@ public class OI {
 		lowerSlider.whileHeld(new ManualSliderCommand(Direction.DOWN));
 		turnSpeed.whenPressed(new RotationSpeedCommand());
 		driveSpeed.whenPressed(new DriveSpeedCommand());
-		launchDisk.whileHeld(new DiskReleaseCommand());
+		launchDisk.whenPressed(new DiskReleaseCommand(0.75));
 
 		//create button for locating target
 	}

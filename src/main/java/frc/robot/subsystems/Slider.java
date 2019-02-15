@@ -4,6 +4,8 @@ import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.RobotSettings;
 import frc.robot.commands.SliderPositionCommand;
@@ -16,6 +18,13 @@ public class Slider extends Subsystem {
     private Counter counter = new Counter(limitSwitch);
 
     private Position currentPosition = Position.BOTTOM;
+
+    /** 
+     *  Initialization tasks to be done before any commands are run with this specific subsystem.
+     */
+    public void updateDashboard() {
+        SmartDashboard.putBoolean("Limit Switch", Robot.slider.getLimitSwitch().get());
+    }
 
     /**
      * Spins the motor to start raising the slider.
@@ -61,12 +70,10 @@ public class Slider extends Subsystem {
     }
 
 	/**
-	 * Automatically starts the command on Robot initialization. Lowers the slider or prepares it to the bottom level.
 	 * @see DriveTrain#initDefaultCommand() references
      * @see SystemControl#initDefaultCommand() references
 	 */
     @Override
     protected void initDefaultCommand() {
-       // this.setDefaultCommand(new SliderPositionCommand(Position.BOTTOM));
     }
 }

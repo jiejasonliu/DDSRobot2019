@@ -62,6 +62,13 @@ public class Robot extends TimedRobot {
 	}
 
 	/**
+	 * Calls defined subsystems's #updateDashboard() in order to keep the SmartDashboard information from expiring.
+	 */
+	public void updateDashboard() {
+		slider.updateDashboard();
+	}
+
+	/**
 	 * This function is called once each time the robot enters Disabled mode.
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
@@ -109,6 +116,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		updateDashboard();
 		Scheduler.getInstance().run();
 	}
 
@@ -128,6 +136,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		updateDashboard();
 		Scheduler.getInstance().run();
 	}
 

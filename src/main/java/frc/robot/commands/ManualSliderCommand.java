@@ -8,6 +8,7 @@ import frc.robot.helper.Direction;
 public class ManualSliderCommand extends Command {
 
     private Direction direction = Direction.UP;
+
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
      * with the same subsystem requirement will call Command#interrupted() on the last command.
@@ -15,10 +16,6 @@ public class ManualSliderCommand extends Command {
     public ManualSliderCommand(Direction direction) {
         requires(Robot.slider);
         this.direction = direction; //Bips was here too :)
-    }
-
-    protected void initialize() {
-        SmartDashboard.putBoolean("Limit Switch", Robot.slider.getLimitSwitch().get());
     }
 
     @Override
@@ -36,9 +33,23 @@ public class ManualSliderCommand extends Command {
         }
     }
 
+    /**
+     * If the robot slider is moving up, #isFinished() will be dependent on the limit switch.
+     * If the robot slider is moving down, it will default to false and will stop with button release.
+     * 
+     * @return If the command should be cancelled or not -- calls Command#interrupted()
+     */
     @Override
     protected boolean isFinished() {
-        return Robot.slider.getLimitSwitch().get();
+        boolean limit = Robot.slider.getLimitSwitch().get();
+        switch(direction) {
+            case UP:
+                return limit;
+            case DOWN:
+                return false;
+            default:
+                return limit;
+        }
     }
 
     @Override
