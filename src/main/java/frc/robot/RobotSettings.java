@@ -13,7 +13,7 @@ public class RobotSettings {
         DRIVE_SPEED = 0.9, //1.0 max (100% of top speed)
         SEEK_MAX_SPEED = 0.75, //for LocateTargetCommand and Limelight
         TURN_SPEED = 1.0,
-        LOWEST_TURN_SPEED = 0.5,
+        LOWEST_TURN_SPEED = 0.6,
         MIN_DRIVE_POWER = 0.1, //lowest power needed to move wheels
         DRIVE_DIRECTION = 1, //negative to invert wheels
 

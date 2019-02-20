@@ -1,6 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
@@ -14,6 +15,7 @@ import frc.robot.helper.Position;
  */
 public class OI {
 	private Joystick joy = new Joystick(RobotMap.JOYSTICK_PORT);
+	private XboxController xbox = new XboxController(0);
 
 	public OI() {
 		Button nomNomRelease = new JoystickButton(joy, 1);
@@ -30,13 +32,17 @@ public class OI {
 		lowerSlider.whileHeld(new ManualSliderCommand(Direction.DOWN));
 		turnSpeed.whenPressed(new RotationSpeedCommand());
 		driveSpeed.whenPressed(new DriveSpeedCommand());
-		launchDisk.whenPressed(new DiskReleaseCommand(0.75));
+		launchDisk.whileHeld(new DiskReleaseCommand());
 
 		//create button for locating target
 	}
 
 	public Joystick getJoystick() {
 		return this.joy;
+	}
+
+	public XboxController getController() {
+		return this.xbox;
 	}
 }
 

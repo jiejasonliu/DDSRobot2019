@@ -31,7 +31,7 @@ public class DriveSpeedCommand extends Command {
 
     @Override
     protected void end() {
-        SmartDashboard.delete("Slider Focus");
+        //SmartDashboard.delete("Slider Focus");
     }
 
     @Override

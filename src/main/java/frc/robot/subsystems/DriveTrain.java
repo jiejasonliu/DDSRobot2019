@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotSettings;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.TankDriveCommand;
 
 public class DriveTrain extends Subsystem {
 
@@ -44,11 +45,15 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("Current Rotation Speed", rotation);
 		double maxDriveSpeed = RobotSettings.DRIVE_SPEED;
 
-		if (Math.abs(velocity) < 0.02) {
-			drive.curvatureDrive(velocity, rotation * 0.80, true); //turn in place
+		if (Math.abs(velocity) < 0.05) {
+			drive.curvatureDrive(velocity, rotation, true); //turn in place
 		} else {
 			drive.curvatureDrive(velocity, rotation, false); //curves
 		}
+	}
+
+	public void tankDrive(double left, double right) {
+		drive.tankDrive(left, right);
 	}
 
 	/**
