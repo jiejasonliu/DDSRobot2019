@@ -23,7 +23,9 @@ public class Slider extends Subsystem {
      *  Initialization tasks to be done before any commands are run with this specific subsystem.
      */
     public void updateDashboard() {
-        SmartDashboard.putBoolean("Limit Switch", Robot.slider.getLimitSwitch().get());
+        if (RobotSettings.LIMIT_SWITCH_ON > 0.0) {
+            SmartDashboard.putBoolean("Limit Switch", Robot.slider.getLimitSwitch().get());
+        }
     }
 
     /**

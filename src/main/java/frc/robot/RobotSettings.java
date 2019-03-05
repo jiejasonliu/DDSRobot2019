@@ -22,6 +22,7 @@ public class RobotSettings {
         SLIDER_MIDDLE = 0,
         SLIDER_BOTTOM = 0,
         SLIDER_SPEED = 1.0,
+        LIMIT_SWITCH_ON = 0.0, //has to be exactly 0.0 to be off
 
         //nom nom calibrations
         NOM_NOM_SPEED = 0.65,

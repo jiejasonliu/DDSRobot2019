@@ -3,6 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
+import frc.robot.RobotSettings;
 import frc.robot.helper.Direction;
 
 public class ManualSliderCommand extends Command {
@@ -41,14 +42,18 @@ public class ManualSliderCommand extends Command {
      */
     @Override
     protected boolean isFinished() {
-        boolean limit = Robot.slider.getLimitSwitch().get();
-        switch(direction) {
-            case UP:
-                return limit;
-            case DOWN:
-                return false;
-            default:
-                return limit;
+        if (RobotSettings.LIMIT_SWITCH_ON != 0.0) {
+            boolean limit = Robot.slider.getLimitSwitch().get();
+            switch(direction) {
+                case UP:
+                    return limit;
+                case DOWN:
+                    return false;
+                default:
+                    return limit;
+            }
+        } else {
+            return false;
         }
     }
 
