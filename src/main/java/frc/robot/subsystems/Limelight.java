@@ -65,6 +65,7 @@ public class Limelight extends Subsystem {
         double area = ta.getDouble(0.0);
         double skew = ts.getDouble(0.0);
         double v = tv.getDouble(0.0);
+        
         return new Limelight.LLData(x, y, area, v, skew);
     }
 

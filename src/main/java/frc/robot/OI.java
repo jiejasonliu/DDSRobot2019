@@ -25,6 +25,7 @@ public class OI {
 		Button launchDisk = new JoystickButton(joy, 12);
 		Button turnSpeed = new JoystickButton(joy, 4);
 		Button driveSpeed = new JoystickButton(joy, 3);
+		Button seek = new JoystickButton(joy, 10);
 
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
@@ -33,8 +34,7 @@ public class OI {
 		turnSpeed.whenPressed(new RotationSpeedCommand());
 		driveSpeed.whenPressed(new DriveSpeedCommand());
 		launchDisk.whileHeld(new DiskReleaseCommand());
-
-		//create button for locating target
+		seek.whileHeld(new LocateTargetCommand(Direction.CLOCKWISE));
 	}
 
 	public Joystick getJoystick() {
