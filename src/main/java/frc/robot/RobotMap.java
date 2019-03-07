@@ -24,5 +24,6 @@ public class RobotMap {
 		NOM_NOM = 6,
 
 		//pneumatics
-		PNEUMATIC_SOLENOID = 0;
+		PNEUMATIC_SOLENOID = 0,
+		ROBOT_LIFTER_SOLENOID = 1;
 }

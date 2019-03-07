@@ -14,12 +14,12 @@ public class DiskReleaseCommand extends Command {
     }
 
     protected void initialize() {
-        Robot.pneumatic.decompress();
+        Robot.pneumatic.decompressDisk();
     }
 
     @Override
     protected void end() {
-        Robot.pneumatic.compress();
+        Robot.pneumatic.compressDisk();
     }
 
     @Override

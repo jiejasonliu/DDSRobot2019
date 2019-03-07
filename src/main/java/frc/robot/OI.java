@@ -18,14 +18,16 @@ public class OI {
 	private XboxController xbox = new XboxController(0);
 
 	public OI() {
-		Button nomNomRelease = new JoystickButton(joy, 1);
-		Button nomNomGrab = new JoystickButton(joy, 2);
-		Button raiseSlider = new JoystickButton(joy, 7);
-		Button lowerSlider = new JoystickButton(joy, 8);
-		Button launchDisk = new JoystickButton(joy, 12);
-		Button turnSpeed = new JoystickButton(joy, 4);
-		Button driveSpeed = new JoystickButton(joy, 3);
-		Button seek = new JoystickButton(joy, 10);
+		Button nomNomRelease = new JoystickButton(joy, 1); //shoot ball
+		Button nomNomGrab = new JoystickButton(joy, 2); //grab ball
+		Button raiseSlider = new JoystickButton(joy, 7); //raise height slider
+		Button lowerSlider = new JoystickButton(joy, 8); //lower height slider
+		Button launchDisk = new JoystickButton(joy, 12); //place game disc
+		Button turnSpeed = new JoystickButton(joy, 4); //enable joystick slider prioritization of turn speed
+		Button driveSpeed = new JoystickButton(joy, 3); //enable joystick driver prioritization of drive speed
+		Button seek = new JoystickButton(joy, 10); //button for limelight seek
+		Button liftRobot = new JoystickButton(joy, 9); //seesaw robot lifter pneumatic; front on, back off; vice versa
+		Button resetRobotLift = new JoystickButton(joy, 11); //reset both pneumatics
 
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
@@ -35,6 +37,8 @@ public class OI {
 		driveSpeed.whenPressed(new DriveSpeedCommand());
 		launchDisk.whileHeld(new DiskReleaseCommand());
 		seek.whileHeld(new LocateTargetCommand(Direction.CLOCKWISE));
+		liftRobot.whileHeld(new LiftRobotCommand(false));
+		resetRobotLift.cancelWhenPressed(new LiftRobotCommand(true));
 	}
 
 	public Joystick getJoystick() {

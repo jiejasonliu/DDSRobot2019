@@ -28,7 +28,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain driveTrain;
 	public static Slider slider;
 	public static NomNom nomNom;
-	public static DiskPneumatic pneumatic;
+	public static Pneumatics pneumatic;
 	public static SystemControl sys;
 	public static Limelight limelight;
 
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
 		nomNom = new NomNom();
 		sys = new SystemControl();
 		limelight = new Limelight();
-		pneumatic = new DiskPneumatic();
+		pneumatic = new Pneumatics();
 
 		//output/input must be initialized after subsystems
 		oi = new OI();
