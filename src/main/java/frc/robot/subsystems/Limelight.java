@@ -4,6 +4,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotSettings;
 import frc.robot.commands.LocateTargetCommand;
@@ -15,11 +16,11 @@ public class Limelight extends Subsystem {
         public final double xOffset, yOffset, area, targetExists, skew;
 
         public LLData(double xOffset, double yOffset, double area, double targetExists, double skew) {
-            this.xOffset = xOffset;    
-            this.yOffset = yOffset;
-            this.area = area;
-            this.targetExists = targetExists;     
-            this.skew = skew;
+            this.xOffset = xOffset; //tx   
+            this.yOffset = yOffset; //ty
+            this.area = area; //ta
+            this.targetExists = targetExists; //tv
+            this.skew = skew; //ts
         }
     }
 
@@ -41,18 +42,18 @@ public class Limelight extends Subsystem {
      * Sets the mode to the one applicable for tracking the reflective tape (low exposure).
      */
     public void setTrackingMode() {
-        pipeline.setNumber(1);
-        camMode.setNumber(0);
-        ledMode.setNumber(3);
+        pipeline.setNumber(0); //pipeline #0
+        camMode.setNumber(0); //turn on vision processing
+        ledMode.setNumber(3); //force on lime LEDs
     }
 
     /**
      * Sets the mode to the one applicable for camera vision.
      */
     public void setDriveCamMode() {
-        pipeline.setNumber(0);
-        camMode.setNumber(1);
-        ledMode.setNumber(1);
+        pipeline.setNumber(1); //pipeline #1
+        camMode.setNumber(1); //turn off vision processing; digital camera mode
+        ledMode.setNumber(1); //force off lime LEDs
     }
 
     /**
@@ -72,8 +73,8 @@ public class Limelight extends Subsystem {
     public double getHeadingError() {
         var limelightData = this.getData(); //Java 10 'var' automatically creates new LLData object.
      
-        double minDrive = RobotSettings.MIN_DRIVE_POWER; //speed the motor will move the robot regardless of how miniscule the error is
-        double kP = RobotSettings.kP;
+        double minDrive = RobotSettings.MIN_TURN_POWER; //speed the motor will move the robot regardless of how miniscule the error is
+        double kP = RobotSettings.kP; //constant for turn power
         double xOffset = limelightData.xOffset;
         double heading = 0.0; //should be opposite of offset (in signs)
 
@@ -82,13 +83,14 @@ public class Limelight extends Subsystem {
         } else { //xOffset less than or equal to 1.0
             heading = -1.0 * ((kP * xOffset) - minDrive);
         }
+
         return heading;
     }
 
     public double getSpeedCorrection() {
-        double speedConstant = -1.0 * RobotSettings.SEEK_MAX_SPEED;
-        double areaConstant = RobotSettings.SEEK_MAX_SPEED / RobotSettings.AREA_FACTOR_RATIO;
-        double speedPorportion = speedConstant + (areaConstant * this.getData().area);
+        double speedConstant = RobotSettings.SEEK_MAX_SPEED;
+        double areaConstant = (speedConstant / RobotSettings.TARGET_AREA) / 3.0; //3.0 is a trial and error calibration value
+        double speedPorportion = speedConstant - (areaConstant * this.getData().area);
         
         return speedPorportion;
     }

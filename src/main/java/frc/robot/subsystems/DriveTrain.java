@@ -56,6 +56,10 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(left, right);
 	}
 
+	public void arcadeDrive(double speed, double turn) {
+		drive.arcadeDrive(speed, turn);
+	}
+
 	/**
 	 * Used primarily for Limelight camera system's locating mechanism.
 	 */

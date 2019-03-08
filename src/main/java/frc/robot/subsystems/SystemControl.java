@@ -75,7 +75,6 @@ public class SystemControl extends Subsystem {
 	 */
     @Override
     protected void initDefaultCommand() {
-        //this.setDefaultCommand(new RotationSpeedCommand());
         this.setDefaultCommand(new DriveSpeedCommand());
     }
 }

@@ -59,6 +59,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData(nomNom);
 		SmartDashboard.putData(limelight);
 		SmartDashboard.putData(pneumatic);
+
+		SmartDashboard.putNumber("Limelight Area", limelight.getData().area);
+		SmartDashboard.putBoolean("Limelight Target Found", limelight.getData().targetExists > 0.0);
 	}
 
 	/**
