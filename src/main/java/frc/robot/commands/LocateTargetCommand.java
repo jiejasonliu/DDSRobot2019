@@ -35,15 +35,15 @@ public class LocateTargetCommand extends Command {
     protected void execute() {
         var limelightData = Robot.limelight.getData(); //Java 10 'var' automatically creates new LLData object.
         
-        if (limelightData.targetExists == 0.0) { //no target
-            Robot.driveTrain.curvatureDrive(0, RobotSettings.LOWEST_TURN_SPEED, true); //spin in place, factor clockwise to determine if clockwise or not
-        } else {
+        if (limelightData.targetExists != 0.0) { //no target
             double speed = Robot.limelight.getSpeedCorrection();
             double heading = Robot.limelight.getHeadingError();
 
-            Robot.driveTrain.arcadeDrive(speed, heading);
-        }
+            System.out.println("Speed: " + speed);
+            System.out.println("Heading: " + heading);
 
+            Robot.driveTrain.arcadeDrive(speed*1.25, heading);
+        }
     }
 
     @Override

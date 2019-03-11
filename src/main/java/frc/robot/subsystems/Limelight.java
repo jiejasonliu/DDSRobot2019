@@ -44,7 +44,7 @@ public class Limelight extends Subsystem {
     public void setTrackingMode() {
         pipeline.setNumber(0); //pipeline #0
         camMode.setNumber(0); //turn on vision processing
-        ledMode.setNumber(3); //force on lime LEDs
+        ledMode.setNumber(0); //lime LEDs: on (based off of settings in pipeline)
     }
 
     /**
@@ -53,7 +53,7 @@ public class Limelight extends Subsystem {
     public void setDriveCamMode() {
         pipeline.setNumber(1); //pipeline #1
         camMode.setNumber(1); //turn off vision processing; digital camera mode
-        ledMode.setNumber(1); //force off lime LEDs
+        ledMode.setNumber(0); //lime LEDS: off (based off of settings in pipeline)
     }
 
     /**
@@ -79,9 +79,11 @@ public class Limelight extends Subsystem {
         double heading = 0.0; //should be opposite of offset (in signs)
 
         if (xOffset > 1.0) {
-            heading = -1.0 * ((kP * xOffset) + minDrive);
+            heading = ((kP * xOffset) + minDrive);
+            System.out.println("GOING LEFT");
         } else { //xOffset less than or equal to 1.0
-            heading = -1.0 * ((kP * xOffset) - minDrive);
+            heading = ((kP * xOffset) - minDrive);
+            System.out.println("GOING RIGHT");
         }
 
         return heading;
@@ -89,7 +91,7 @@ public class Limelight extends Subsystem {
 
     public double getSpeedCorrection() {
         double speedConstant = RobotSettings.SEEK_MAX_SPEED;
-        double areaConstant = (speedConstant / RobotSettings.TARGET_AREA) / 3.0; //3.0 is a trial and error calibration value
+        double areaConstant = (speedConstant / RobotSettings.TARGET_AREA) / 1.5; //3.0 is a trial and error calibration value
         double speedPorportion = speedConstant - (areaConstant * this.getData().area);
         
         return speedPorportion;

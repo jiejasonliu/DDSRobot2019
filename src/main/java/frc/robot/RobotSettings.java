@@ -11,7 +11,7 @@ public class RobotSettings {
         //drive train settings
         LOWEST_DRIVE_SPEED = 0.5,
         DRIVE_SPEED = 0.9, //1.0 max (100% of top speed)
-        SEEK_MAX_SPEED = 0.4, //for LocateTargetCommand and Limelight
+        SEEK_MAX_SPEED = 0.60, //for LocateTargetCommand and Limelight
         TURN_SPEED = 0.85,
         LOWEST_TURN_SPEED = 0.4,
         MIN_TURN_POWER = 0.10, //lowest power needed to move wheels
@@ -36,7 +36,7 @@ public class RobotSettings {
          * TARGET_AREA is the percentage of ta (area) for Limelight. 
          * It corresponds to how much % of the area is taken before it should go to a complete stop.
          */
-        TARGET_AREA = 12.5; 
+        TARGET_AREA = 10.5; 
 
     public static void changeRotationSpeed(double speed) {
         TURN_SPEED = speed;

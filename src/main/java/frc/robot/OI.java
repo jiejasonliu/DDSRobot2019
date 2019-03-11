@@ -6,6 +6,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.RobotMap;
 import frc.robot.commands.*;
+import frc.robot.commands.manual.ManualLiftRobotBackCommand;
+import frc.robot.commands.manual.ManualLiftRobotFrontCommand;
+import frc.robot.commands.manual.ManualSliderCommand;
 import frc.robot.helper.Direction;
 import frc.robot.helper.Position;
 
@@ -36,9 +39,11 @@ public class OI {
 		turnSpeed.whenPressed(new RotationSpeedCommand());
 		driveSpeed.whenPressed(new DriveSpeedCommand());
 		launchDisk.whileHeld(new DiskReleaseCommand());
-		seek.whileHeld(new LocateTargetCommand(Direction.CLOCKWISE));
-		liftRobot.whileHeld(new LiftRobotCommand(false));
-		resetRobotLift.cancelWhenPressed(new LiftRobotCommand(true));
+		seek.toggleWhenActive(new LocateTargetCommand(Direction.CLOCKWISE));
+		//liftRobot.whileHeld(new LiftRobotCommand(false));
+		//resetRobotLift.cancelWhenPressed(new LiftRobotCommand(true));
+		liftRobot.toggleWhenPressed(new ManualLiftRobotFrontCommand());
+		resetRobotLift.toggleWhenPressed(new ManualLiftRobotBackCommand());
 	}
 
 	public Joystick getJoystick() {
