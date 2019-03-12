@@ -49,14 +49,14 @@ public class Pneumatics extends Subsystem {
      * Decompresses pneumatics and lifts the robot up.
      */
     public void decompressLifterBack() {
-        robotBack.set(Value.kForward);
+        robotBack.set(Value.kReverse);
     }
 
     /**
      * Compress pneumatics and puts robot back down.
      */
     public void compressLifterBack() {
-        robotBack.set(Value.kReverse);
+        robotBack.set(Value.kForward);
     }
     
     @Override
