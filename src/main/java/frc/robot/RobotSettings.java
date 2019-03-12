@@ -11,7 +11,7 @@ public class RobotSettings {
         //drive train settings
         LOWEST_DRIVE_SPEED = 0.5,
         DRIVE_SPEED = 0.9, //1.0 max (100% of top speed)
-        SEEK_MAX_SPEED = 0.60, //for LocateTargetCommand and Limelight
+        SEEK_MAX_SPEED = 0.650, //for LocateTargetCommand and Limelight
         TURN_SPEED = 0.85,
         LOWEST_TURN_SPEED = 0.4,
         MIN_TURN_POWER = 0.10, //lowest power needed to move wheels
@@ -28,9 +28,10 @@ public class RobotSettings {
         NOM_NOM_SPEED = 0.65,
         NOM_NOM_RELEASE_SPEED = 1.0,
 
-        //PID corrections
-        kP = 0.05,
+        //limelight / PID corrections
+        kP = 0.07,
         kI = 0.06, //Hi! Bips was here :)
+        LL_DELAY = 1.0, //in seconds
 
         /* 
          * TARGET_AREA is the percentage of ta (area) for Limelight. 
