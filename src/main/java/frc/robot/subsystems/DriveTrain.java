@@ -26,8 +26,6 @@ public class DriveTrain extends Subsystem {
 	private SpeedControllerGroup rightSideDrive = new SpeedControllerGroup(right1, right2);
 	public DifferentialDrive drive = new DifferentialDrive(leftSideDrive, rightSideDrive);
 
-	//public ADXRS450_Gyro gyro  = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
-
 	public final double initSpeed = RobotSettings.DRIVE_SPEED; //speed during initialization
 	
 	/**
@@ -52,10 +50,20 @@ public class DriveTrain extends Subsystem {
 		}
 	}
 
+	/** 
+	 * @deprecated Preferably use a proper Joystick or use {@link #curvatureDrive(double, double, boolean)}.
+	 * Tank drive makes controlling the Robot difficult in the case of multiple button actions (no free hand for a single driver).
+	 */
+	@Deprecated
 	public void tankDrive(double left, double right) {
 		drive.tankDrive(left, right);
 	}
 
+	/**
+	 * Drive that is directly porportional to drive and turn speed.
+	 * 
+	 * @see frc.robot.commands.LocateTargetCommand#execute()
+	 */
 	public void arcadeDrive(double speed, double turn) {
 		drive.arcadeDrive(speed, turn);
 	}
@@ -69,8 +77,8 @@ public class DriveTrain extends Subsystem {
 
 	/**
 	 * Automatically starts the command on Robot initialization. You never have to start the command in this case.
-	 * @see Slider#initDefaultCommand() references
-	 * @see SystemControl#initDefaultCommand() references
+	 * @see frc.robot.subsystems.Slider#initDefaultCommand() Slider reference
+	 * @see frc.robot.subsystems.SystemControl#initDefaultCommand() SystemControl reference
 	 */
 	@Override
 	public void initDefaultCommand() {

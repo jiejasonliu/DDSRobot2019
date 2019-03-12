@@ -12,13 +12,16 @@ public class ManualSliderCommand extends Command {
 
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
-     * with the same subsystem requirement will call Command#interrupted() on the last command.
+     * with the same subsystem requirement will call {@link Command#interrupted()} on the last command.
      */
     public ManualSliderCommand(Direction direction) {
         requires(Robot.slider);
         this.direction = direction; //Bips was here too :)
     }
 
+    /**
+     * Execute based on the passed Direction object from OI.
+     */
     @Override
     protected void execute() {
         switch(direction) {
@@ -38,7 +41,7 @@ public class ManualSliderCommand extends Command {
      * If the robot slider is moving up, #isFinished() will be dependent on the limit switch.
      * If the robot slider is moving down, it will default to false and will stop with button release.
      * 
-     * @return If the command should be cancelled or not -- calls Command#interrupted()
+     * @return If the command should be cancelled or not -- calls {@link Command#interrupted()}
      */
     @Override
     protected boolean isFinished() {

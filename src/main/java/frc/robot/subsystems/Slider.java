@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.RobotSettings;
-import frc.robot.commands.SliderPositionCommand;
 import frc.robot.helper.Position;
 
 public class Slider extends Subsystem {
@@ -20,7 +19,9 @@ public class Slider extends Subsystem {
     private Position currentPosition = Position.BOTTOM;
 
     /** 
-     *  Initialization tasks to be done before any commands are run with this specific subsystem.
+     * Initialization tasks to be done before any commands are run with this specific subsystem.
+     * <p>
+     * Turn off limit switch function if LIMIT_SWITCH_ON is not greater than 0 (as defined in RobotSettings).
      */
     public void updateDashboard() {
         if (RobotSettings.LIMIT_SWITCH_ON > 0.0) {
@@ -72,8 +73,8 @@ public class Slider extends Subsystem {
     }
 
 	/**
-	 * @see DriveTrain#initDefaultCommand() references
-     * @see SystemControl#initDefaultCommand() references
+	 * @see DriveTrain#initDefaultCommand() DriveTrain reference
+     * @see SystemControl#initDefaultCommand() SystemControl reference
 	 */
     @Override
     protected void initDefaultCommand() {

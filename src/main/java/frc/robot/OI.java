@@ -29,8 +29,8 @@ public class OI {
 		Button turnSpeed = new JoystickButton(joy, 4); //enable joystick slider prioritization of turn speed
 		Button driveSpeed = new JoystickButton(joy, 3); //enable joystick driver prioritization of drive speed
 		Button seek = new JoystickButton(joy, 10); //button for limelight seek
-		Button liftRobot = new JoystickButton(joy, 9); //seesaw robot lifter pneumatic; front on, back off; vice versa
-		Button resetRobotLift = new JoystickButton(joy, 11); //reset both pneumatics
+		Button frontRobot = new JoystickButton(joy, 9); //front of Robot (nom-nom side) pneumatic
+		Button backRobot = new JoystickButton(joy, 11); //back of Robot (slider side) pneumatic
 
 		nomNomRelease.whileHeld(new NomNomReleaseCommand());
 		nomNomGrab.whileHeld(new NomNomGrabCommand());
@@ -39,11 +39,9 @@ public class OI {
 		turnSpeed.whenPressed(new RotationSpeedCommand());
 		driveSpeed.whenPressed(new DriveSpeedCommand());
 		launchDisk.whileHeld(new DiskReleaseCommand());
-		seek.toggleWhenActive(new LocateTargetCommand(Direction.CLOCKWISE));
-		//liftRobot.whileHeld(new LiftRobotCommand(false));
-		//resetRobotLift.cancelWhenPressed(new LiftRobotCommand(true));
-		liftRobot.toggleWhenPressed(new ManualLiftRobotFrontCommand());
-		resetRobotLift.toggleWhenPressed(new ManualLiftRobotBackCommand());
+		seek.toggleWhenActive(new LocateTargetCommand());
+		frontRobot.toggleWhenPressed(new ManualLiftRobotFrontCommand());
+		backRobot.toggleWhenPressed(new ManualLiftRobotBackCommand());
 	}
 
 	public Joystick getJoystick() {

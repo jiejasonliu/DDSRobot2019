@@ -70,6 +70,11 @@ public class Limelight extends Subsystem {
         return new Limelight.LLData(x, y, area, v, skew);
     }
 
+    /**
+     * Grabs the offset using Limelight and calculates the appropriate porportional heading correction.
+     * 
+     * @return Angle (in degrees) robot should rotate at
+     */
     public double getHeadingError() {
         var limelightData = this.getData(); //Java 10 'var' automatically creates new LLData object.
      
@@ -89,9 +94,15 @@ public class Limelight extends Subsystem {
         return heading;
     }
 
+    /**
+     * Uses the preset speed constant along with a preset trial and error calibration value 
+     * (attempt to keep speedPorportional at the edge of drive train movement as rect. area of target approaches its maxima).
+     *  
+     * @return Speed that robot should move at current position relative to reflective tape
+     */
     public double getSpeedCorrection() {
         double speedConstant = RobotSettings.SEEK_MAX_SPEED;
-        double areaConstant = (speedConstant / RobotSettings.TARGET_AREA) / 1.5; //3.0 is a trial and error calibration value
+        double areaConstant = (speedConstant / RobotSettings.TARGET_AREA) / 1.5; //1.5 is a trial and error calibration value
         double speedPorportion = speedConstant - (areaConstant * this.getData().area);
         
         return speedPorportion;

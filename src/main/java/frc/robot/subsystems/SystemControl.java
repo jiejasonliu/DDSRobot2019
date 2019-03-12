@@ -30,6 +30,7 @@ public class SystemControl extends Subsystem {
     /**
      * Uses the slider axis to work out the turn speed designated. 
      * Turn speed will never exceed highest turn speed or go below lowest turn speed.
+     * 
      * @return The turn speed with respect to the axis.
      */
     public double getCalculatedTurnSpeed() {
@@ -50,6 +51,7 @@ public class SystemControl extends Subsystem {
     /**
      * Uses the slider axis to work out the drive speed designated. 
      * Drive speed will never exceed highest drive speed or go below lowest drive speed.
+     * 
      * @return The drive speed with respect to the axis.
      */
     public double getCalculatedDriveSpeed() {
@@ -69,9 +71,10 @@ public class SystemControl extends Subsystem {
 
     /**
 	 * Automatically starts the command on Robot initialization. Starts the DriveSpeedCommand first.
+     * 
 	 * @see DriveTrain#initDefaultCommand() references
      * @see Slider#initDefaultCommand() references
-     * @see OI() refer to buttons activating the SystemControl commands (RotationSpeed and DriveSpeed commands).
+     * @see frc.robot.OI references to buttons activating the SystemControl commands (RotationSpeed and DriveSpeed commands).
 	 */
     @Override
     protected void initDefaultCommand() {

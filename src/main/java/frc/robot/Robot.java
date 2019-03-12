@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
 	}
 
 	/**
-	 * Calls defined subsystems's #updateDashboard() in order to keep the SmartDashboard information from expiring.
+	 * Calls defined subsystems's {@link Slider#updateDashboard()} in order to keep the SmartDashboard information from expiring.
 	 */
 	public void updateDashboard() {
 		slider.updateDashboard();
@@ -92,8 +92,8 @@ public class Robot extends TimedRobot {
 	 * chooser code works with the Java SmartDashboard. If you prefer the
 	 * LabVIEW Dashboard, remove all of the chooser code and uncomment the
 	 * getString code to get the auto name from the text box below the Gyro
-	 *
-	 * <p>You can add additional auto modes by adding additional commands to the
+	 * <p>
+	 * You can add additional auto modes by adding additional commands to the
 	 * chooser code above (like the commented example) or additional comparisons
 	 * to the switch structure below with additional strings & commands.
 	 */

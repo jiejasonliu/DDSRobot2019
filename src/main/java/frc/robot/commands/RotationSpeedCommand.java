@@ -9,7 +9,7 @@ public class RotationSpeedCommand extends Command {
 
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
-     * with the same subsystem requirement will call Command#interrupted() on the last command.
+     * with the same subsystem requirement will call {@link Command#interrupted()} on the last command.
      */
     public RotationSpeedCommand() {
         requires(Robot.sys);

@@ -7,9 +7,7 @@ public class ManualLiftRobotFrontCommand extends Command {
 
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
-     * with the same subsystem requirement will call Command#interrupted() on the last command.
-     * 
-     * @param resetBoth Whether or not this instance of the command should compress both pneumatics.
+     * with the same subsystem requirement will call {@link Command#interrupted()} on the last command.
      */
     public ManualLiftRobotFrontCommand() {
         requires(Robot.pneumatic);

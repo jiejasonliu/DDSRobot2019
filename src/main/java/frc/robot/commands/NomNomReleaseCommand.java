@@ -5,9 +5,10 @@ import frc.robot.Robot;
 
 public class NomNomReleaseCommand extends Command {
 
+
     /**
      * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
-     * with the same subsystem requirement will call Command#interrupted() on the last command.
+     * with the same subsystem requirement will call {@link Command#interrupted()} on the last command.
      */
     public NomNomReleaseCommand() {
         requires(Robot.nomNom);

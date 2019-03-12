@@ -6,6 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveCommand extends Command {
 	
+	/**
+     * requires(Subsystem subsystem) is crucial where any other Command (including instances) 
+     * with the same subsystem requirement will call {@link Command#interrupted()} on the last command.
+     */
 	public DriveCommand() {
 		requires(Robot.driveTrain);
 	}
