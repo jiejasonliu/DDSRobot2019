@@ -8,7 +8,7 @@ import frc.robot.RobotSettings;
 
 public class NomNom extends Subsystem {
 
-    private Spark nomMotor = new Spark(RobotMap.NOM_NOM);
+    private Victor nomMotor = new Victor(RobotMap.NOM_NOM);
 
     /**
      * Grabs the game-ball by motor that spins the teeth wheels.
