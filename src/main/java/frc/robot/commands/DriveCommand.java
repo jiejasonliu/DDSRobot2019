@@ -48,6 +48,11 @@ public class DriveCommand extends Command {
 	protected void end() {
 	}
 
+	/**
+	 * DriveCommand should never be interrupted unless it's stopped by: <p>
+	 * 1. Limelight commands <p>
+	 * 2. irregularity such as the battery browning out.
+	 */
 	@Override
 	protected void interrupted() {
 		System.out.println("FATAL ERROR!!! Drive Train has been interrupted.");
