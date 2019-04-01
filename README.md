@@ -67,7 +67,7 @@
 * **Slider.java** -- defines what raising and lowering is; limit switch mechanism to prevent damage
 * **SystemControl.java** -- uses Joystick slider to control Robot acceleration and rotation speed
 ---
-### Tech
+### Technology
 * [Visual Studio Code 2019 (FRC-distro)](https://wpilib.screenstepslive.com/s/currentCS/a/932382-installing-visual-studio-code-c-java) -- Integrated Development Environment (IDE)
 * [Java](https://www.oracle.com/java) -- Primary Programming Language
 ---
@@ -85,7 +85,7 @@ Git is recommended for the benefit of both version control and easy repository c
 `Java and JDK 11`
 ---
 ### Development
-```md
+```text
 Developed by Jie "Jason" Liu (@Deepzai)
 Good luck next year!
 
